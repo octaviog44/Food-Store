@@ -40,7 +40,7 @@ public class Usuario extends Base {
     @Builder.Default
     private Rol rol = Rol.USUARIO;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "usuario_id")
     @Builder.Default
     private Set<Pedido> pedidos = new HashSet<>();

@@ -25,7 +25,7 @@ public class Categoria extends Base {
     @Column(name = "descripcion", length = 500)
     private String descripcion;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "categoria_id")
     @Builder.Default
     private Set<Producto> productos = new HashSet<>();

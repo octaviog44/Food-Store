@@ -3,11 +3,9 @@ package com.tp.jpa.repository;
 import com.tp.jpa.model.Pedido;
 import com.tp.jpa.model.Usuario;
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.TypedQuery;
 
 import java.util.List;
 import java.util.Optional;
-
 
 /**
  * Repositorio de Usuario. Además del CRUD heredado implementa la consulta
@@ -24,8 +22,12 @@ public class UsuarioRepository extends BaseRepository<Usuario> {
         super(Usuario.class);
     }
 
+    /**
+     * Busca un usuario activo por su mail.
+     */
     public Optional<Usuario> buscarPorMail(String mail) {
         EntityManager em = emf.createEntityManager();
+
         try {
             String jpql = """
                     SELECT u
@@ -34,24 +36,22 @@ public class UsuarioRepository extends BaseRepository<Usuario> {
                       AND u.eliminado = false
                     """;
 
-            TypedQuery<Usuario> query = em.createQuery(jpql, Usuario.class);
-            query.setParameter("mail", mail);
-
-            List<Usuario> resultados = query.getResultList();
-
-            if (resultados.isEmpty()) {
-                return Optional.empty();
-            }
-
-            return Optional.of(resultados.get(0));
+            return em.createQuery(jpql, Usuario.class)
+                    .setParameter("mail", mail)
+                    .getResultStream()
+                    .findFirst();
 
         } finally {
             em.close();
         }
     }
 
+    /**
+     * Retorna los pedidos activos del usuario indicado.
+     */
     public List<Pedido> buscarPedidosPorUsuario(Long idUsuario) {
         EntityManager em = emf.createEntityManager();
+
         try {
             String jpql = """
                     SELECT p
