@@ -17,10 +17,6 @@ Este proyecto corresponde al desarrollo del TPI de Programación III, implementa
 ## 📁 Estructura del proyecto
 
 
-src/main/java/com/tp/jpa/
-
-src/main/java/com/tp/jpa/
-
 <pre>
 src/main/java/com/tp/jpa/
 
@@ -103,6 +99,7 @@ Alternativa
 ./gradlew jar
 java -jar build/libs/foodstore-jpa-0.0.1-SNAPSHOT.jar
 
+```bash
 ---
 ##🧪 Datos de prueba
 
