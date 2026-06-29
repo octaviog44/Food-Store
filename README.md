@@ -99,7 +99,7 @@ Alternativa
 ./gradlew jar
 java -jar build/libs/foodstore-jpa-0.0.1-SNAPSHOT.jar
 
-```bash
+
 ---
 ##🧪 Datos de prueba
 
