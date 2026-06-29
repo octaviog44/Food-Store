@@ -24,14 +24,29 @@ src/main/java/com/tp/jpa/
 <pre>
 src/main/java/com/tp/jpa/
 
-├── model/
-│   ├── Base.java
-│   ├── Producto.java
-│   ├── Usuario.java
-
+├── model/ # Entidades JPA
+│ ├── Base.java
+│ ├── Calculable.java
+│ ├── Categoria.java
+│ ├── Producto.java
+│ ├── Usuario.java
+│ ├── Pedido.java
+│ ├── DetallePedido.java
+│ └── enums/
+│ ├── Rol.java
+│ ├── EstadoPedido.java
+│ └── FormaPago.java
+│
+├── util/
+│ └── JPAUtil.java
+│
 ├── repository/
-│   ├── BaseRepository.java
-
+│ ├── BaseRepository.java
+│ ├── ProductoRepository.java
+│ ├── CategoriaRepository.java
+│ ├── UsuarioRepository.java
+│ └── PedidoRepository.java
+│
 └── Main.java
 </pre>
 
