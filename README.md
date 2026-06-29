@@ -21,19 +21,19 @@ src/main/java/com/tp/jpa/
 
 src/main/java/com/tp/jpa/
 
+<pre>
+src/main/java/com/tp/jpa/
+
 ├── model/
 │   ├── Base.java
 │   ├── Producto.java
 │   ├── Usuario.java
-│
+
 ├── repository/
 │   ├── BaseRepository.java
-│   ├── ProductoRepository.java
-│
-├── util/
-│   └── JPAUtil.java
-│
+
 └── Main.java
+</pre>
 
 
 ---
