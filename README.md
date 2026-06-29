@@ -19,28 +19,19 @@ Este proyecto corresponde al desarrollo del TPI de Programación III, implementa
 
 src/main/java/com/tp/jpa/
 
-├── model/ # Entidades JPA
-│ ├── Base.java
-│ ├── Calculable.java
-│ ├── Categoria.java
-│ ├── Producto.java
-│ ├── Usuario.java
-│ ├── Pedido.java
-│ ├── DetallePedido.java
-│ └── enums/
-│ ├── Rol.java
-│ ├── EstadoPedido.java
-│ └── FormaPago.java
-│
-├── util/
-│ └── JPAUtil.java
+src/main/java/com/tp/jpa/
+
+├── model/
+│   ├── Base.java
+│   ├── Producto.java
+│   ├── Usuario.java
 │
 ├── repository/
-│ ├── BaseRepository.java
-│ ├── ProductoRepository.java
-│ ├── CategoriaRepository.java
-│ ├── UsuarioRepository.java
-│ └── PedidoRepository.java
+│   ├── BaseRepository.java
+│   ├── ProductoRepository.java
+│
+├── util/
+│   └── JPAUtil.java
 │
 └── Main.java
 
