@@ -92,13 +92,15 @@ src/main/java/com/tp/jpa/
 
 #### Con Gradle
 
-
+<pre>
 ./gradlew run
-
+</pre>
+  
 Alternativa
+<pre>
 ./gradlew jar
 java -jar build/libs/foodstore-jpa-0.0.1-SNAPSHOT.jar
-
+</pre>
 
 ---
 ##🧪 Datos de prueba
