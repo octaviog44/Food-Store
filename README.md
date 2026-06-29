@@ -92,12 +92,13 @@ src/main/java/com/tp/jpa/
 
 ---
 
-## ▶️ Cómo ejecutar el proyecto
+### ▶️ Cómo ejecutar el proyecto
 
-### Con Gradle
+#### Con Gradle
 
 ```bash
 ./gradlew run
+
 Alternativa
 ./gradlew jar
 java -jar build/libs/foodstore-jpa-0.0.1-SNAPSHOT.jar
