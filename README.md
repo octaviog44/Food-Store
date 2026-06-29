@@ -21,17 +21,11 @@ src/main/java/com/tp/jpa/
 
 ├── model/ # Entidades JPA
 │ ├── Base.java
-
 │ ├── Calculable.java
-
 │ ├── Categoria.java
-
 │ ├── Producto.java
-
 │ ├── Usuario.java
-
 │ ├── Pedido.java
-
 │ ├── DetallePedido.java
 │ └── enums/
 │ ├── Rol.java
