@@ -1,115 +1,126 @@
-# Food Store JPA — Plantilla TPI (Parte 2)
+# 🍔 Food Store JPA — Trabajo Práctico Integrador
 
-Este README corresponde a la plantilla base para el desarrollo del TPI — Parte 2 (Backend JPA + Consola).
+Este proyecto corresponde al desarrollo del TPI de Programación III, implementado con JPA/Hibernate y una interfaz de consola.
 
 ---
 
-## Tecnologías
+## 🧰 Tecnologías utilizadas
 
 - Java 21
 - JPA / Hibernate 6
-- H2 (base de datos en archivo — `./data/jpa_db`)
+- H2 Database (modo archivo)
 - Lombok
 - Gradle 8
 
 ---
 
-## Estructura del proyecto
+## 📁 Estructura del proyecto
 
-```
+
 src/main/java/com/tp/jpa/
-│
-├── model/                        # Entidades JPA (NO modificar)
-│   ├── Base.java                 # Clase abstracta base (id, eliminado, createdAt)
-│   ├── Calculable.java           # Interfaz con calcularTotal()
-│   ├── Categoria.java
-│   ├── Producto.java
-│   ├── Usuario.java
-│   ├── Pedido.java
-│   ├── DetallePedido.java
-│   └── enums/
-│       ├── Rol.java
-│       ├── Estado.java
-│       └── FormaPago.java
+
+├── model/ # Entidades JPA
+│ ├── Base.java
+│ ├── Calculable.java
+│ ├── Categoria.java
+│ ├── Producto.java
+│ ├── Usuario.java
+│ ├── Pedido.java
+│ ├── DetallePedido.java
+│ └── enums/
+│ ├── Rol.java
+│ ├── EstadoPedido.java
+│ └── FormaPago.java
 │
 ├── util/
-│   └── JPAUtil.java              # Factory singleton (NO modificar — ya implementado)
+│ └── JPAUtil.java
 │
-├── repository/                   # ★ COMPLETAR — queries personalizadas
-│   ├── BaseRepository.java       # CRUD genérico (NO modificar — ya implementado)
-│   ├── ProductoRepository.java   # Sin queries extra (NO modificar)
-│   ├── CategoriaRepository.java  # ★ Implementar buscarProductosPorCategoria()
-│   ├── UsuarioRepository.java    # ★ Implementar buscarPorMail() y buscarPedidosPorUsuario()
-│   └── PedidoRepository.java     # ★ Implementar buscarPorEstado()
+├── repository/
+│ ├── BaseRepository.java
+│ ├── ProductoRepository.java
+│ ├── CategoriaRepository.java
+│ ├── UsuarioRepository.java
+│ └── PedidoRepository.java
 │
-└── Main.java                     # ★ COMPLETAR — menús de consola
-```
+└── Main.java
+
 
 ---
 
-## Qué está implementado
+## ⚙️ Funcionalidades implementadas
 
-| Componente | Estado |
-|---|---|
-| `JPAUtil` | ✅ Completo |
-| `BaseRepository` (guardar, buscarPorId, listarActivos, eliminarLogico) | ✅ Completo |
-| `ProductoRepository` | ✅ Completo (hereda todo de Base) |
-| Modelo completo (todas las entidades y enums) | ✅ Completo |
-| `Main` — estructura del menú principal | ✅ Esqueleto listo |
+### 📦 CRUD completo
+- Categorías (alta, baja lógica, modificación, listado)
+- Productos (alta, baja lógica, modificación, listado)
+- Usuarios (alta, baja lógica, modificación, listado)
+- Pedidos (alta, baja lógica, cambio de estado, listado)
 
 ---
 
-## Qué hay que implementar
+### 🔍 Reportes implementados
 
-### Repositorios
-
-| Clase | Método | Descripción |
-|---|---|---|
-| `CategoriaRepository` | `buscarProductosPorCategoria(Long categoriaId)` | JPQL navegando `c.productos` (la relación es unidireccional y Categoria es la dueña), filtrando por `eliminado = false` |
-| `UsuarioRepository` | `buscarPorMail(String mail)` | JPQL filtrando por mail y `eliminado = false`, retorna `Optional<Usuario>` |
-| `UsuarioRepository` | `buscarPedidosPorUsuario(Long idUsuario)` | JPQL navegando `u.pedidos` (la relación es unidireccional y Usuario es el dueño), filtrando por `eliminado = false` |
-| `PedidoRepository` | `buscarPorEstado(EstadoPedido estado)` | JPQL filtrando por estado y `eliminado = false` |
-
-### Menú de consola (`Main.java`)
-
-| Método | Descripción |
-|---|---|
-| `menuCategorias()` | Alta, modificar, baja lógica, listado |
-| `menuProductos()` | Alta (con selección de categoría), modificar, baja lógica, listado |
-| `menuUsuarios()` | Alta (mail único), modificar, baja lógica, listado, buscar por mail |
-| `menuPedidos()` | Alta (transacción atómica), cambiar estado, baja lógica, listados |
-| `menuReportes()` | Productos por categoría, pedidos por usuario/estado, total facturado |
+- Productos por categoría
+- Pedidos por usuario
+- Pedidos por estado
+- Total facturado (pedidos entregados)
 
 ---
 
-## Cómo ejecutar
+### 🧠 Reglas de negocio aplicadas
+
+- Baja lógica mediante campo `eliminado`
+- Cálculo automático de total en pedidos
+- Relación Usuario → Pedidos (unidireccional)
+- Relación Categoría → Productos (unidireccional)
+- Uso de enums para estado, rol y forma de pago
+- Validación de integridad con JPA/Hibernate
+
+---
+
+## 🗄️ Base de datos
+
+- Motor: H2
+- Modo: archivo persistente
+- Ubicación: `./data/jpa_db.mv.db`
+- Creación automática al ejecutar el sistema
+
+---
+
+## ▶️ Cómo ejecutar el proyecto
+
+### Con Gradle
 
 ```bash
 ./gradlew run
-```
-
-O compilar y ejecutar el JAR:
-
-```bash
+Alternativa
 ./gradlew jar
 java -jar build/libs/foodstore-jpa-0.0.1-SNAPSHOT.jar
-```
+🧪 Datos de prueba
 
-La base de datos H2 se crea automáticamente en `./data/jpa_db.mv.db` al primer arranque.
+No hay carga inicial automática.
 
----
+Orden recomendado:
 
-## Credenciales / datos de prueba
+Categorías
+Productos
+Usuarios
+Pedidos
+🎥 Video demostrativo
 
-No hay carga inicial automática. Crear los datos desde el menú de consola en este orden:
+👉 [Colocar aquí link a YouTube o Google Drive (público)]
 
-1. Categorías
-2. Productos (requieren categoría existente)
-3. Usuarios
-4. Pedidos (requieren usuario y productos existentes)
+Duración: 10 a 15 minutos
+Requisito obligatorio: inicio con cámara encendida
 
----
+📄 Documento PDF
 
+👉 [Colocar aquí link al PDF o archivo en el repositorio]
+
+📌 Notas importantes
+Se utiliza baja lógica (no eliminación física).
+Las relaciones se manejan con JPA/Hibernate.
+El sistema está diseñado con patrón Repository.
+Toda la lógica de persistencia está centralizada en BaseRepository.
 ## Entrega
 
 - **Video demostrativo:** [link aquí]
