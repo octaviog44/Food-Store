@@ -92,7 +92,7 @@ src/main/java/com/tp/jpa/
 
 #### Con Gradle
 
-```bash
+
 ./gradlew run
 
 Alternativa
