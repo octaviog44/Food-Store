@@ -101,7 +101,9 @@ src/main/java/com/tp/jpa/
 Alternativa
 ./gradlew jar
 java -jar build/libs/foodstore-jpa-0.0.1-SNAPSHOT.jar
-🧪 Datos de prueba
+
+---
+##🧪 Datos de prueba
 
 No hay carga inicial automática.
 
@@ -111,12 +113,17 @@ Categorías
 Productos
 Usuarios
 Pedidos
-🎥 Video demostrativo
+
+---
+
+##🎥 Video demostrativo
 
 👉 [Colocar aquí link a YouTube o Google Drive (público)]
 
 Duración: 10 a 15 minutos
 Requisito obligatorio: inicio con cámara encendida
+
+---
 
 📄 Documento PDF
 
