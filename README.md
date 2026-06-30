@@ -136,5 +136,5 @@ El sistema está diseñado con patrón Repository.
 Toda la lógica de persistencia está centralizada en BaseRepository.
 ## Entrega
 
-- **Video demostrativo:** [link aquí]
-- **Informe PDF:** [link aquí]
+- **Video demostrativo:** https://drive.google.com/file/d/1PwuU4RbqGwx_yC08Qx9qAD6uJSWsbyQc/view?usp=drive_link
+- **Informe PDF:** https://docs.google.com/document/d/1PRAOhpKo2LLOFscWcTE0e0SMEYa1XwdI7amH2LoOCfA/edit?usp=drive_link
